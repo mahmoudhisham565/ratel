@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --second-color: #198754;
+    --main-color: wheat;
+}
+body {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+nav {
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 2%;
+    background-color: var(--main-color);
+    position: sticky;
+    top: 0;
+}
+nav .logo h2 {
+    color: black;
+    padding-right: 20px;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    padding-left: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: .3s;
+}
+nav ul li:hover {
+    color: white;
+}
+nav .menu-icon {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: black;
+    padding-left: 20px;
+    display: none;
+}
+/* slider */
+.slider {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    min-width: 300px;
+    padding: 20px;
+    background-color: var(--main-color);
+    left: -2000px;
+    top: 100px;
+    opacity: 0;
+    border-radius: 8px;
+    transition: .3s;
+    white-space: nowrap;
+}
+.slider.show {
+    left: 20px;
+    opacity: 1;
+}
+.slider img {
+    width: 150px;
+    opacity: 0.5;
+    position: absolute;
+}
+.slider ul li {
+    color: black;
+    padding: 10px 0;
+    border-bottom: 2px solid whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* main section */
+.main {
+    background-color: black;
+    width: 100%;
+    height: calc(100vh - 72px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.main h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+.main h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+.main a {
+    color: white;
+    border-radius: 8px;
+    border: 3px solid var(--main-color);
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .3s;
+}
+.main a:hover {
+    background-color: var(--main-color);
+    color: black;
+}
+/* hadith section */
+    .hadith {
+        padding: 50px 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #f9f9f9;
+    }
+    .hadith h2 {
+        color: black;
+        font-size: 40px;
+        font-weight: 800;
+        margin-bottom: 40px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+    .hadith .hadith-box {
+        background-color: white;
+        box-shadow: 0 0 10px black inset;
+        border-radius: 8px;
+        width: 600px;
+        min-height: 350px;
+        margin-bottom: 20px;
+        padding: 20px 2%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .hadith .hadith-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 600px;
+    }
+    .hadith .hadith-btn .prave,
+    .hadith .hadith-btn .next {
+        background-color: var(--main-color);
+        border: none;
+        outline: none;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 6px;
+        border-radius: 4px;
+        border: 2px solid black;
+        color: black;
+    }
+/* quran section */
+.quran {
+    padding: 50px 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+.sura-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.sura-box .sura {
+    min-height: 100px;
+    min-width: 150px;
+    margin: 5px;
+    background-color: var(--main-color);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+.sura-box .sura:hover {
+    transform: scale(1.1);
+}
+.quran h2 {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+/* sura popup */
+.sura-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background-color: white;
+    overflow: scroll;
+    transform: translateX(100%);
+    transition: .3s;
+}
+.sura-popup.active {
+    transform: translateX(0);
+}
+.sura-popup .close-btn {
+    position: sticky;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-size: 20px;
+    box-shadow: 0 0 10px black;
+}
+.sura-popup .ayat {
+    padding: 20px;
+    width: calc(100% - 40px);
+    margin-top: 20px;
+    margin-right: 40px;
+    text-align: center;
+}
+.sura-popup .ayat p {
+    line-height: 2;
+    width: 100%;
+    border-bottom: 4px solid var(--main-color);
+    margin-bottom: 10px;
+}
+/* media query */
+@media (max-width:900px) {
+    nav ul li {
+        display: none;
+    }
+    nav .menu-icon {
+        display: block;
+    }
+    .slider {
+        width: 100px;
+        left: 5px;
+    }
+    .hadith .hadith-box {
+        width: 350px;
+        min-height: 350px;
+    }
+    .hadith .hadith-btn {
+        width: 350px;
+    }
+}
